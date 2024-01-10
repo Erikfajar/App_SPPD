@@ -20,7 +20,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->to('dashboard')->with('success','Berhasil Login!!');
+            return redirect()->to('dashboard')->with('toast_success','Berhasil Login!!');
         }else{
             Session::flash('status','failed');
             Session::flash('message','Login gagal!');

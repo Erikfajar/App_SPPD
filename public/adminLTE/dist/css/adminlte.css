@@ -39,6 +39,7 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-JetBrains-Mono:  'JetBrains Mono', monospace;
 }
 
 *,
@@ -48,7 +49,9 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: 'Times New Roman', Times, serif;
+  /* font-family: JetBrains-Mono; */
+
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -60,13 +63,22 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+  font-family: 'JetBrains Mono', monospace;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
   text-align: left;
   background-color: #fff;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/Fonts/ttf/JetBrainsMono-Regular.ttf') format('TrueType');
+  /* Sesuaikan path/to/JetBrainsMono-Regular.ttf dengan path sebenarnya */
+  font-weight: normal;
+  font-style: normal;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {

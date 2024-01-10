@@ -16,9 +16,9 @@
     </div><!-- /.container-fluid -->
   </div>
   @include('komponen.alert')
-  <section class="content">
+  {{-- <section class="content">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row"> --}}
         {{-- <div class="col-12">
           @foreach ($data as $item)
           <div class="card">
@@ -162,7 +162,7 @@
                             <td>{{ $item->instansi }}</td>
                             <td>
 
-                              <a href="{{ route('pdf-sppd', $item->id) }}" class="btn btn-sm btn-danger"><i class="fa-solid fa-file-pdf"></i></a>
+                              <a href="{{ route('pdf-sppd', $item->id) }}" target="_blank" class="btn btn-sm btn-danger"><i class="fa-solid fa-file-pdf"></i></a>
                               <form method="POST" action="{{ route('sppd.destroy', $item->id) }}" class="d-inline">
                                 @csrf @method('DELETE')
                                 <button class="btn btn-sm btn-warning delete-btn" type="button">

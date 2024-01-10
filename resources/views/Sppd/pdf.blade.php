@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif
         }
 
         .container {
@@ -54,7 +55,7 @@
 
         .line-cop {
             width: 100%;
-            height: 4px;
+            height: 5px;
             background-color: black;
         }
 
@@ -181,17 +182,17 @@
                 <!-- bagian cop -->
                 <div class="cop">
                     <!-- logo src -->
-                    <img class="image-cop" src="logo.png" alt="">
+                    <img class="image-cop" src="{{ asset('jabar.jpg') }}" alt="">
                     <h3 class="pt-1">PEMERINTAHAN DAERAH PROVINSI JAWA BARAT</h3>
                     <h3 class="">DINAS PENDIDIKAN</h3>
                     <h3>CABANG DINAS PENDIDIKAN WILAYAH IV</h3>
                     <h3>SEKOLAH MENENGAH KEJURUAN NEGERI 2 SUBANG</h3>
                     <p>Jalan Kapten Piere Tendean Km.05 Dangdeur Subang Telp.(02600 412565
-                        Fax. (0260) 416468 Email : info@smkn-2sbg.sch.id website : www.smkn-2sbg.sch.id
+                        Fax. (0260) 416468 Email : <u style="color: blue">info@smkn-2sbg.sch.id</u> website : <u style="color: blue">www.smkn-2sbg.sch.id</u>
                         Kabupaten Subang - 41212
                     </p>
                 </div>
-                <hr class="line-cop">
+                <hr class="line-cop" >
                 <!-- akhir bagian cop -->
 
                 <!-- conten secction -->
@@ -220,12 +221,12 @@
                         <tr>
                             <td style="width: 3%;">1</td>
                             <td style="width: 55%;">Penggunaan anggaran/ Kuasa Pengguna Anggaran</td>
-                            <td>Kepala Sekolah</td>
+                            <td colspan="2">{{ $data->pengguna_anggaran }}</td>
                         </tr>
                         <tr>
                             <td style="width: 3%;">2</td>
                             <td style="width: 55%;">Nama / Nip pegawai yang melaksanakan Perjalanan Dinas </td>
-                            <td>Kepala Sekolah</td>
+                            <td colspan="2">{{ $data->datapegawai->nama }} {{$data->datapegawai->nip}}</td>
                         </tr>
                         <tr>
                             <td style="width: 3%;">3</td>
@@ -237,17 +238,20 @@
                                     <li>Tingkat Biaya Perjalanan Dinas</li>
                                     <ol>
                             </td>
-                            <td>Kepala Sekolah</td>
+                            <td colspan="2">a. {{ $data->datapegawai->pangkat }}<br>
+                            b. {{ $data->datapegawai->jabatan }} <br>
+                            c. {{ $data->biaya_perjalanan }}
+                            </td>
                         </tr>
                         <tr>
                             <td style="width: 3%;">4</td>
                             <td style="width: 55%;">Maksud Perjalanan Dinas </td>
-                            <td>Kepala Sekolah</td>
+                            <td colspan="2">{{ $data->maksud_perjalanan }}</td>
                         </tr>
                         <tr>
                             <td style="width: 3%;">5</td>
                             <td style="width: 55%;">Alat angkutan yang dipergunakan</td>
-                            <td>Kepala Sekolah</td>
+                            <td colspan="2">{{ $data->alat_angkutan }}</td>
                         </tr>
                         <tr>
                             <td style="width: 3%;">6</td>
@@ -258,7 +262,9 @@
                                     <li>Tempat Tujuan</li>
                                     <ol>
                             </td>
-                            <td>
+                            <td colspan="2">
+                                a. {{ $data->tempat_berangkat }} <br>
+                                b. {{ $data->tempat_tujuan}}
                             </td>
                         </tr>
                         <tr>
@@ -271,25 +277,46 @@
                                     <li>Tanggal Harus Kembali</li>
                                     <ol>
                             </td>
-                            <td>
+                         
+                            <td colspan="2">
+                                a. {{ $data->lama_berangkat }}<br />b. {{
+                                    $data->tgl_berangkat_indo}}<br />c. {{ $data->tgl_kembali_indo}}
                             </td>
                         </tr>
                         <tr>
                             <td style="width: 3%;">8</td>
                             <td style="width: 55%;">Pengikut</td>
-                            <td>
+                            <td style="width: 20%;">
+                              Tanggal Lahir
+                            </td>
+                            <td style="width: 30%;">
+                                Keterangan
                             </td>
                         </tr>
                         <tr>
                             <td style="width: 3%;">9</td>
-                            <td style="width: 55%;">Pembebanan Anggaran</td>
-                            <td>
+                            <td style="width: 55%;">1. {{ $data->namapengikut1 }}<br />2.{{ $data->namapengikut2 }}</td>
+                            <td style="width: 20%; font-size:15px">
+                                1.{{ $data->tgl_lhr1_indo }}<br />2,{{ $data->tgl_lhr2_indo }}
                             </td>
+                            <td style="width: 30%; font-size:15px">
+                                1. {{ $data->ketpengikut1 }}<br />2. {{ $data->ketpengikut2 }}
+                              </td>
                         </tr>
                         <tr>
                             <td style="width: 3%;">10</td>
+                            <td style="width: 55%;">Pembebanan Anggaran <br>
+                            1. Instansi <br>
+                            2. Akun
+                            </td>
+                            <td colspan="2">
+                               1. {{ $data->instansi }}<br />2. {{ $data->akun }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 3%;">11</td>
                             <td style="width: 55%;">Keterangan lain-lain</td>
-                            <td>
+                            <td colspan="2">{{$data->ket}}
                             </td>
                         </tr>
                     </table>
@@ -502,10 +529,10 @@
 
                                     </tr>
                                     <tr class="pt-5">
-                                        <td colspan="2">Nama Pejabat</td>
+                                        <td colspan="2">RAMLIS, STP.,M.Si.</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2">NIP</td>
+                                        <td colspan="2">NIP. 19640620 198803 1007</td>
                                     </tr>
                                 </table>
                             </center>
